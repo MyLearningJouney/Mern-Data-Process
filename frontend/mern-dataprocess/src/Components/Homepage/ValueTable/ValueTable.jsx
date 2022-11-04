@@ -1,6 +1,6 @@
 import Table from "react-bootstrap/Table";
 
-function ValueTable({header,data,error}) {
+function ValueTable({ header, data, error }) {
   return (
     <div>
       <div>
@@ -19,7 +19,11 @@ function ValueTable({header,data,error}) {
               return (
                 <tr key={index}>
                   {Object.values(item).map((value, index) => {
-                    return <td key={index}>{value}</td>;
+                    return (
+                      <td key={index} contentEditable="true">
+                        {value}
+                      </td>
+                    );
                   })}
                   <td>
                     <button>Oi</button>
