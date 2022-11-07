@@ -1,6 +1,10 @@
 import Table from "react-bootstrap/Table";
+import ValueCell from "../ValueTable/ValueCell.jsx";
+import { useState } from "react";
 
 function ValueTable({ header, data, error }) {
+  const [cellValue, setCellValue] = useState("");
+
   return (
     <div>
       <div>
@@ -20,8 +24,14 @@ function ValueTable({ header, data, error }) {
                 <tr key={index}>
                   {Object.values(item).map((value, index) => {
                     return (
-                      <td key={index} contentEditable="true">
-                        {value}
+                      <td
+                        key={index}
+                        onInput={() => console.log()}
+                        contentEditable="true"
+                        cellValue={cellValue}
+                        setCellValue={setCellValue}
+                      >
+                        {cellValue}
                       </td>
                     );
                   })}

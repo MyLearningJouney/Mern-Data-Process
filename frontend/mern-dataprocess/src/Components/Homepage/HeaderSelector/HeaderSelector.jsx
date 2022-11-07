@@ -6,9 +6,9 @@ import Col from "react-bootstrap/Col";
 function HeaderSelector({ validHeader, setValidHeader }) {
   function checkboxHandler(e) {
     if (e.target.checked) {
-        validHeader.push(e.target.name);
+      validHeader.push(e.target.name);
     } else {
-        validHeader.splice(validHeader.indexOf(e.target.name), 1);
+      validHeader.splice(validHeader.indexOf(e.target.name), 1);
     }
     setValidHeader(validHeader);
     console.log(validHeader);
