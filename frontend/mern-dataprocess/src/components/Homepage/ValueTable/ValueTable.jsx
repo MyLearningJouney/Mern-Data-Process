@@ -1,14 +1,19 @@
 import Table from "react-bootstrap/Table";
-import ValueCell from "../ValueTable/ValueCell.jsx";
-import { useState } from "react";
+import ValueCell from "./ValueCell.jsx";
+import { useRef } from "react";
 
 function ValueTable({ header, data, error }) {
-  const [cellValue, setCellValue] = useState("");
+  const rowRef = useRef(null);
+  const columnRef = useRef(null);
+
+  function handleRef(ref, value) {
+    ref.current = value;
+  }
 
   return (
     <div>
       <div>
-        <Table striped bordered hover size="sm">
+        <Table>
           <thead>
             <tr>
               {error
@@ -21,18 +26,16 @@ function ValueTable({ header, data, error }) {
           <tbody>
             {data.map((item, index) => {
               return (
-                <tr key={index}>
+                <tr key={index} ref={handleRef(rowRef, item.Matrícula)}>
                   {Object.values(item).map((value, index) => {
                     return (
-                      <td
+                      <ValueCell
                         key={index}
-                        onInput={() => console.log()}
-                        contentEditable="true"
-                        cellValue={cellValue}
-                        setCellValue={setCellValue}
-                      >
-                        {cellValue}
-                      </td>
+                        cellValue={value}
+                        Headers={handleRef(columnRef, Object.keys(item)[index])}
+                        row={rowRef.current}
+                        column={columnRef.current}
+                      />
                     );
                   })}
                   <td>

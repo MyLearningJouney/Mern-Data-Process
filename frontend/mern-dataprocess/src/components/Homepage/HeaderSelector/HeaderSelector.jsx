@@ -31,7 +31,7 @@ function HeaderSelector({ validHeader, setValidHeader }) {
                 name="Banco de Horas Negativo (N.A.)"
                 onChange={checkboxHandler}
               />
-              <label for="bancoHorasNegativo">
+              <label htmlFor="bancoHorasNegativo">
                 Banco de Horas Negativo (N.A.)
               </label>
               <input
@@ -40,28 +40,30 @@ function HeaderSelector({ validHeader, setValidHeader }) {
                 name="Hora Extra"
                 onChange={checkboxHandler}
               />
-              <label for="horaExtra">Hora Extra</label>
+              <label htmlFor="horaExtra">Hora Extra</label>
               <input
                 type="checkbox"
                 id="falta"
                 name="FALTA"
                 onChange={checkboxHandler}
               />
-              <label for="falta">FALTA</label>
+              <label htmlFor="falta">FALTA</label>
               <input
                 type="checkbox"
                 id="faltaBH"
                 name="FALTA (quitação automática)"
                 onChange={checkboxHandler}
               />
-              <label for="faltaBH">FALTA (quitação automática)</label>
+              <label htmlFor="faltaBH">FALTA (quitação automática)</label>
               <input
                 type="checkbox"
                 id="horaExtraBH"
                 name="Hora Extra (quitação automática)"
                 onChange={checkboxHandler}
               />
-              <label for="horaExtraBH">Hora Extra (quitação automática)</label>
+              <label htmlFor="horaExtraBH">
+                Hora Extra (quitação automática)
+              </label>
             </Stack>
           </Col>
         </Row>
